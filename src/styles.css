@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+
+@charset "UTF-8";
+
+@font-face {
+    font-family: GoticaLondon;
+    src: url(./assets/Fonts/OldLondon.ttf);
+}
+
+body {
+    height: 100vh;
+    background-color: olivedrab;
+}

@@ -1,0 +1,14 @@
+.pie {
+    background-image: url(../../../assets/Images/pizzaBack.jpeg);
+    font-family: Impact, 'Arial Narrow Bold', sans-serif;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+}
+
+.pie h3 {
+    margin: 0px;
+    background-color: rgba(240, 248, 255, 0.5)
+}

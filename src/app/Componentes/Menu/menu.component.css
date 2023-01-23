@@ -1,0 +1,25 @@
+.menu {
+    font-weight: bold;
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0px;
+    overflow: hidden;
+}
+
+.menu ul li a {
+    display: inline-block;
+    padding: 1rem 1rem;
+}
+
+.menu ul li {
+    height: 5vh;
+    display: inline-flex;
+    align-items: center;
+}
+
+.menu li a:hover {
+    background-color: red;
+    color: white;
+}

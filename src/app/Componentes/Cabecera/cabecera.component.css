@@ -1,0 +1,15 @@
+.cabecera {
+    background-image: url(../../../assets/Images/pizzaBack.jpeg);
+    font-family: GoticaLondon, Impact, 'Arial Narrow Bold', sans-serif;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+}
+
+.cabecera h1 {
+    font-size: 6vh;
+    font-weight: bold;
+    background-color: rgba(240, 248, 255, 0.5)
+}
