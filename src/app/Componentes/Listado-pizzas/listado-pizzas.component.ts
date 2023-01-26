@@ -18,7 +18,6 @@ export class ListadoPizzasComponent implements OnInit {
 
     private ObtenerPizzas(): void {
         this.servicioPizzas.RecuperarPizzas().subscribe({
-            // ahora 3 posibles callback
             next: (dato) => this.listaPizzas = dato, // correcto
             error: (error) => { }, // error
             complete: () => { } // fin

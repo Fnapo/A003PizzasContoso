@@ -10,6 +10,8 @@ import { MenuComponent } from './Componentes/Menu/menu.component';
 import { ListadoPizzasComponent } from './Componentes/Listado-pizzas/listado-pizzas.component';
 import { FrontComponent } from './Componentes/front/front.component';
 import { PaginaNoEncontradaComponent } from './Componentes/pagina-no-encontrada/pagina-no-encontrada.component';
+import { PizzaComponent } from './Componentes/pizza/pizza.component';
+import { SobreNosotrosComponent } from './Componentes/sobre-nosotros/sobre-nosotros.component';
 
 @NgModule({
     declarations: [
@@ -19,7 +21,9 @@ import { PaginaNoEncontradaComponent } from './Componentes/pagina-no-encontrada/
         MenuComponent,
         ListadoPizzasComponent,
         FrontComponent,
-        PaginaNoEncontradaComponent
+        PaginaNoEncontradaComponent,
+        PizzaComponent,
+        SobreNosotrosComponent
     ],
     imports: [
         BrowserModule,

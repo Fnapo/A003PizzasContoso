@@ -23,3 +23,9 @@
     background-color: red;
     color: white;
 }
+
+.menu ul li *.seleccionado {
+    background-color: blue;
+    color: white;
+    pointer-events: none;
+}

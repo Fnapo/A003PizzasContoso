@@ -1,8 +1,18 @@
 div.container {
     background-color: olive;
-    font-family: Halloween, 'Times New Roman', Times, serif;
 }
 
-div.container h3 {
+.vacio h3 {
+    font-family: Halloween,
+        'Times New Roman',
+        Times,
+        serif;
     font-size: 8vh;
+}
+
+.novacio {
+    font-family: 'Times New Roman',
+        Times,
+        serif;
+    font-size: 3vh;
 }

@@ -1,0 +1,5 @@
+<div class="container text-black" [ngClass]="esPar ? 'div-par' : 'div-non'">
+    <p class="texto-indentado text-capitalize">{{pizza.nombre}}</p>
+    <p class="texto-indentado text-capitalize">{{pizza.estaLibreGluten ? 'Sí ' :
+        'No ' }}está libre de gluten</p>
+</div>

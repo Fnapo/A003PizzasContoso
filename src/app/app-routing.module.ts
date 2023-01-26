@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FrontComponent } from './Componentes/front/front.component';
 import { ListadoPizzasComponent } from './Componentes/Listado-pizzas/listado-pizzas.component';
 import { PaginaNoEncontradaComponent } from './Componentes/pagina-no-encontrada/pagina-no-encontrada.component';
+import { SobreNosotrosComponent } from './Componentes/sobre-nosotros/sobre-nosotros.component';
 
 let Pagina404: string = "pagina404";
 
@@ -11,7 +12,7 @@ const routes: Routes = [
     {
         path: "front", component: FrontComponent, children: [ // rutas anidadas
             { path: "listado", component: ListadoPizzasComponent },
-            //{ path: "sobreNosotros", component: AcercaDeNosotrosComponent },
+            { path: "sobreNosotros", component: SobreNosotrosComponent },
             { path: "", redirectTo: 'listado', pathMatch: 'full' }
         ]
     },

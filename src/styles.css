@@ -16,3 +16,7 @@ body {
     height: 100vh;
     background-color: olivedrab;
 }
+
+.texto-indentado {
+    text-indent: 10%;
+}

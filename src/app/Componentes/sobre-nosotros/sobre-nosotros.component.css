@@ -1,0 +1,27 @@
+#nosotros {
+    width: 80%;
+    margin: 0 auto;
+    overflow: auto;
+    padding-top: 1rem;
+}
+
+#foto {
+    width: min(160px, 30%);
+    height: auto;
+    display: block;
+    margin: auto;
+    border-radius: 20px;
+}
+
+#foto:hover {
+    border-radius: 30px;
+    filter: sepia(50%);
+    position: relative;
+    top: -10px;
+}
+
+p {
+    text-indent: 10%;
+    text-align: justify;
+    padding: 0px 20px;
+}
