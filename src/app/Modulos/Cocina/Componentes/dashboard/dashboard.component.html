@@ -1,0 +1,35 @@
+<p>dashboard works!</p>
+<div id="botonera" class="container d-flex align-items-center">
+    <div class="col-12 col-md-8 d-flex justify-content-around mx-auto">
+        <button type="button" class="btn btn-primary col-5 col-lg-4"
+            (click)="CrearPizza()">
+            Nueva Pizza
+        </button>
+        <button type="button" class="btn btn-danger col-5 col-lg-4"
+            (click)="Logout()">
+            Logout
+        </button>
+    </div>
+</div>
+<!--
+<div id="contenedorDash" class="container overflow-auto">
+    <table class="table table-dark">
+        <thead class="bg-primary text-white text-center sticky-top">
+            <th>Id</th>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Fecha</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let entrada of listadoEntradas" class="align-middle"
+                (click)="EditarEntrada(entrada.id)">
+                O en vez de (click)="" routerLink='editarEntrada/{{entrada.id}}'
+                <td>{{entrada.id}}</td>
+                <td>{{entrada.title | capPalabras}}</td>
+                <td>{{entrada.autor | capPalabras}}</td>
+                <td>{{entrada.fecha}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+-->

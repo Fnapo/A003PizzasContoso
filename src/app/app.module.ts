@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,6 +13,7 @@ import { FrontComponent } from './Componentes/front/front.component';
 import { PaginaNoEncontradaComponent } from './Componentes/pagina-no-encontrada/pagina-no-encontrada.component';
 import { PizzaComponent } from './Componentes/pizza/pizza.component';
 import { SobreNosotrosComponent } from './Componentes/sobre-nosotros/sobre-nosotros.component';
+import { LoginComponent } from './Componentes/login/login.component';
 
 @NgModule({
     declarations: [
@@ -23,11 +25,13 @@ import { SobreNosotrosComponent } from './Componentes/sobre-nosotros/sobre-nosot
         FrontComponent,
         PaginaNoEncontradaComponent,
         PizzaComponent,
-        SobreNosotrosComponent
+        SobreNosotrosComponent,
+        LoginComponent
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
+        FormsModule,
         HttpClientModule
     ],
     providers: [],

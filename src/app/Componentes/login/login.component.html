@@ -1,0 +1,44 @@
+<div id="contenedor"
+    class="container text-center h-100 d-flex align-items-center">
+    <form (ngSubmit)="Submit()" #loginForm="ngForm" role="form"
+        class="w-100 was-validated py-5 px-3 px-md-5" autocomplete="off">
+        <div class="col-12 col-md-6 mb-3 mx-auto">
+            <label for="nombre" class="form-label col-12">Nombre:</label>
+            <input type="text" [(ngModel)]="usuario.nombre" name="nombre"
+                id="nombre" required #nombre="ngModel" class="form-control mb-1"
+                #inputNombre />
+            <div *ngIf="nombre.invalid && nombre.dirty"
+                class="text-danger fw-bold my-0">
+                <div *ngIf="nombre.errors?.['required']">
+                    <span>Campo requerido</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 mb-3 mx-auto">
+            <label for="contrasegna"
+                class="form-label col-12">Contraseña:</label>
+            <input type="password" [(ngModel)]="usuario.contrasegna"
+                name="contrasegna" required #contrasegna="ngModel" minlength="6"
+                class="form-control" />
+            <div *ngIf="contrasegna.invalid && contrasegna.dirty"
+                class="text-danger fw-bold my-0">
+                <div *ngIf="contrasegna.errors?.['required']">
+                    <span>Campo requerido</span>
+                </div>
+                <div *ngIf="contrasegna.errors?.['minlength']">
+                    <span>Campo con al menos 6 caracteres</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-8 d-flex justify-content-around mx-auto">
+            <button type="submit" class="btn btn-primary col-5 col-lg-4"
+                [disabled]="!loginForm.form.valid">
+                Acceder
+            </button>
+            <button type="button" class="btn btn-danger col-5 col-lg-4"
+                (click)="Volver()">
+                Sobre Nosotros
+            </button>
+        </div>
+    </form>
+</div>
