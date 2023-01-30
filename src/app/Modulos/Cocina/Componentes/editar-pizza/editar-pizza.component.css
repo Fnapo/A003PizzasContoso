@@ -1,0 +1,8 @@
+form {
+    background-color: bisque;
+}
+
+form label.form-label::after {
+    content: '*';
+    color: red;
+}

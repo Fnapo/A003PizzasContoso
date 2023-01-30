@@ -1,0 +1,34 @@
+<div class="container h-100 d-flex text-center align-items-center">
+
+    <form class="was-validated col-12 col-md-9 py-5 mx-auto px-3 px-md-5"
+        autocomplete="off" [formGroup]="grupoPizzaBorrar"
+        (submit)="BorrarPizza()">
+        <h3 class="mb-5">Borrando una Pizza</h3>
+        <div class="mb-3">
+            <label class="col-12 text-center text-capitalize bg-light">Nombre:
+                {{pizza.nombre}}</label>
+        </div>
+        <div class="mb-3">
+            <label
+                class="col-12 text-center text-capitalize bg-light">{{pizza.estaLibreGluten
+                ?
+                'Sí':
+                'No'}} Está Libre de
+                gluten</label>
+        </div>
+        <div class="form-group form-check mb-5 col-6 col-md-3">
+            <input class="form-check-input" type="checkbox" id="borrar"
+                formControlName="seraBorrada">
+            <label class="form-check-label" for="borrar">
+                Borrar Pizza
+            </label>
+        </div>
+        <div class="botonera-edit d-flex justify-content-around">
+            <button class="btn btn-primary col-5" type="submit"
+                [disabled]="!grupoPizzaBorrar.valid"> Borrar </button>
+            <button (click)="Cancelar()" type="button"
+                class="btn btn-danger col-5"> Cancelar </button>
+        </div>
+    </form>
+
+</div>

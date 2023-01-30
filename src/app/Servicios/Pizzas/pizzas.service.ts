@@ -15,4 +15,21 @@ export class PizzasService {
         return this.httpClient.get<Pizza[]>(this.pathURL)
         //return this.httpClient.get("assets/json/entradas.json");
     }
+
+    public ObtenerPizza(id: number): Observable<Pizza> {
+        return this.httpClient.get<Pizza>(`${this.pathURL}/${id}`);
+    }
+
+    public EditarPizza(pizza: Pizza): Observable<Pizza> {
+        const cabecera: HttpHeaders = new HttpHeaders({
+            'Content-Type': 'application/json'
+        });
+
+        return this.httpClient.put<Pizza>(`${this.pathURL}/${pizza.id}`,
+            pizza, { headers: cabecera })
+    }
+
+    public BorrarrPizza(id: number): Observable<void> {
+        return this.httpClient.delete<void>(`${this.pathURL}/${id}`);
+    }
 }

@@ -1,0 +1,18 @@
+#contenedorDash {
+    height: 85vh;
+}
+
+#botonera {
+    height: 10vh;
+}
+
+.table-bordered th {
+    vertical-align: middle;
+    background-color: blue;
+    border: 1px solid white;
+}
+
+#contenedorDash table {
+    border-collapse: separate;
+    border-spacing: 1px;
+}
