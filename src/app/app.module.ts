@@ -14,6 +14,8 @@ import { PaginaNoEncontradaComponent } from './Componentes/pagina-no-encontrada/
 import { PizzaComponent } from './Componentes/pizza/pizza.component';
 import { SobreNosotrosComponent } from './Componentes/sobre-nosotros/sobre-nosotros.component';
 import { LoginComponent } from './Componentes/login/login.component';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { CocinaModule } from './Modulos/Cocina/cocina.module';
 
 @NgModule({
     declarations: [
@@ -32,9 +34,10 @@ import { LoginComponent } from './Componentes/login/login.component';
         BrowserModule,
         AppRoutingModule,
         FormsModule,
-        HttpClientModule
+        HttpClientModule,
+        CocinaModule
     ],
-    providers: [],
+    providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
