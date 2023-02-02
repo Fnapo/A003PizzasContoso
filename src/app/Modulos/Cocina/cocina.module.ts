@@ -6,10 +6,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './Componentes/dashboard/dashboard.component';
 import { EditarPizzaComponent } from './Componentes/editar-pizza/editar-pizza.component';
 import { BorrarPizzaComponent } from './Componentes/borrar-pizza/borrar-pizza.component';
+import { AgregarPizzaComponent } from './Componentes/agregar-pizza/agregar-pizza.component';
 
 const rutasCocina: Routes = [
     { path: 'dashboard', component: DashboardComponent },
     { path: 'editarPizza/:id', component: EditarPizzaComponent },
+    { path: 'crearPizza', component: EditarPizzaComponent },
     { path: 'borrarPizza/:id', component: BorrarPizzaComponent },
     { path: '', redirectTo: '/cocina/dashboard', pathMatch: "full" }
 ]
@@ -18,7 +20,8 @@ const rutasCocina: Routes = [
     declarations: [
         DashboardComponent,
         EditarPizzaComponent,
-        BorrarPizzaComponent
+        BorrarPizzaComponent,
+        AgregarPizzaComponent
     ],
     imports: [
         CommonModule,

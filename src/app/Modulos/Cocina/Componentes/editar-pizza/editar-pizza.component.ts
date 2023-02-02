@@ -13,7 +13,9 @@ import { Pizza } from '../../../../Clases/Pizza/pizza';
 export class EditarPizzaComponent implements OnInit, AfterViewInit {
     public grupoPizza: FormGroup;
     private id = 0;
-    private pizza = new Pizza();
+    private pizzaInicial = new Pizza();
+    private pizzaFinal = new Pizza();
+    public esEditar = false;
     @ViewChild("inputNombre")
     inputNombre!: ElementRef;
 
@@ -25,7 +27,10 @@ export class EditarPizzaComponent implements OnInit, AfterViewInit {
     }
 
     ngOnInit(): void {
-        this.ObtenerPizzaEditar();
+        this.esEditar = (this.router.url.includes("editar"));
+        if (this.esEditar) {
+            this.ObtenerPizzaEditar();
+        }
     }
 
     ngAfterViewInit(): void {
@@ -35,10 +40,13 @@ export class EditarPizzaComponent implements OnInit, AfterViewInit {
     }
 
     private ObtenerPizzaEditar() {
-        this.rutaActiva.params.subscribe((params) => { this.id = +params['id']; });
+        this.rutaActiva.params.subscribe((params) => {
+            this.id = +params['id'];
+            this.pizzaFinal.id = this.id;
+        });
         this.servicioPizzas.ObtenerPizza(this.id).subscribe({
             next: (dato: Pizza) => {
-                this.pizza = dato;
+                this.pizzaInicial = dato;
                 this.Resetear();
             },
             error: (error) => {
@@ -55,26 +63,47 @@ export class EditarPizzaComponent implements OnInit, AfterViewInit {
 
     public Resetear() {
         this.grupoPizza.patchValue({
-            nombre: this.pizza.nombre,
-            estaLibre: this.pizza.estaLibreGluten
+            nombre: this.pizzaInicial.nombre,
+            estaLibre: this.pizzaInicial.estaLibreGluten
         });
     }
 
     public EnviarPizza(): void {
         this.ModificarPizza();
-        this.servicioPizzas.EditarPizza(this.pizza).subscribe({
+        if (this.esEditar) {
+            this.EditandoPizza();
+        }
+        else {
+            this.CreandoPizza();
+        }
+    }
+
+    private ModificarPizza(): void {
+        this.pizzaFinal.nombre = this.grupoPizza.get('nombre')?.value;
+        this.pizzaFinal.estaLibreGluten = this.grupoPizza.get('estaLibre')?.value;
+    }
+
+    private EditandoPizza(): void {
+        this.servicioPizzas.EditarPizza(this.pizzaFinal).subscribe({
             next: (dato: Pizza) => {
-                alert(`Entrada editada correctamente (${dato.id} = ${this.pizza.id}) ...`);
+                alert(`Pizza editada correctamente (${dato.id} = ${this.pizzaFinal.id}) ...`);
                 this.Cancelar();
             },
             error: (error) => {
-                alert(`Entrada editada con error: ${error.message}...`);
+                alert(`Pizza no editada, existe algún error: ${error.message}...`);
             }
         })
     }
 
-    private ModificarPizza(): void {
-        this.pizza.nombre = this.grupoPizza.get('nombre')?.value;
-        this.pizza.estaLibreGluten = this.grupoPizza.get('estaLibre')?.value;
+    private CreandoPizza(): void {
+        this.servicioPizzas.AgregarPizza(this.pizzaFinal).subscribe({
+            next: (dato: Pizza) => {
+                alert(`Pizza agregada correctamente (Ref: ${dato.id}) ...`);
+                this.Cancelar();
+            },
+            error: (error) => {
+                alert(`Pizza no agregada, existe algún error: ${error.message}...`);
+            }
+        })
     }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Pizza } from 'src/app/Clases/Pizza/pizza';
 import { PizzasService } from 'src/app/Servicios/Pizzas/pizzas.service';
 
@@ -8,7 +9,7 @@ import { PizzasService } from 'src/app/Servicios/Pizzas/pizzas.service';
     styleUrls: ['./listado-pizzas.component.css']
 })
 export class ListadoPizzasComponent implements OnInit {
-    public listaPizzas: Pizza[] = [];
+    public listaPizzas: (Pizza[] | null) = null;
 
     constructor(private servicioPizzas: PizzasService) { }
 
@@ -22,5 +23,9 @@ export class ListadoPizzasComponent implements OnInit {
             error: (error) => { }, // error
             complete: () => { } // fin
         });
+    }
+
+    public ListaLongitud(): number {
+        return this.listaPizzas == null ? 0 : this.listaPizzas.length;
     }
 }

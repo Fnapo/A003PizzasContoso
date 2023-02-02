@@ -10,8 +10,8 @@ import { PizzasService } from 'src/app/Servicios/Pizzas/pizzas.service';
     styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-    public listadoPizzas: Pizza[] = [];
-    public readonly minimo = 50;
+    public listadoPizzas: (Pizza[] | null) = null;
+    public readonly minimo = 5;
     public readonly maximo = 1000;
 
     constructor(private servicioPizzas: PizzasService, private router: Router) { }
@@ -24,9 +24,15 @@ export class DashboardComponent implements OnInit {
         })
     }
 
-    public CrearPizza(): void {
-
+    LongitudLista(): number {
+        return this.listadoPizzas == null ? 0 : this.listadoPizzas.length;
     }
+
+    /*
+        public CrearPizza(): void {
+
+        }
+    */
 
     public Logout(): void {
         this.router.navigate(['/front/sobreNosotros']);

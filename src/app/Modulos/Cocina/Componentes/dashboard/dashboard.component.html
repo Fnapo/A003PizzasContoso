@@ -1,7 +1,8 @@
 <div id="botonera" class="container d-flex align-items-center">
     <div class="col-12 col-md-8 d-flex justify-content-around mx-auto">
         <button type="button" class="btn btn-primary col-5 col-md-4"
-            [disabled]="listadoPizzas.length>=maximo" (click)="CrearPizza()">
+            [disabled]="LongitudLista()>=maximo"
+            routerLink='/cocina/crearPizza'>
             Nueva Pizza
         </button>
         <button type="button" class="btn btn-danger col-5 col-md-4"
@@ -11,7 +12,8 @@
     </div>
 </div>
 
-<div id="contenedorDash" class="container overflow-auto">
+<div id="contenedorDash" class="container overflow-auto"
+    *ngIf="listadoPizzas!=null; else nulo">
     <table class="table table-bordered table-dark bg-white">
         <thead class="text-center sticky-top">
             <tr>
@@ -21,7 +23,7 @@
                 <th>Borrar</th>
             </tr>
         </thead>
-        <tbody *ngFor="let indice of [1,1,1,1,1,1,1,1]">
+        <tbody>
             <tr *ngFor="let pizza of listadoPizzas" class="align-middle">
                 <td class="text-capitalize">{{pizza.nombre}}</td>
                 <td>{{pizza.estaLibreGluten ? 'Sí':'No'}}</td>
@@ -30,8 +32,7 @@
                         routerLink='/cocina/editarPizza/{{pizza.id}}'>Editar</button>
                 </td>
                 <td>
-                    <button type="button"
-                        [disabled]="listadoPizzas.length<=minimo"
+                    <button type="button" [disabled]="LongitudLista()<=minimo"
                         class="btn btn-danger col-12"
                         routerLink='/cocina/borrarPizza/{{pizza.id}}'>Borrar</button>
                 </td>
@@ -39,3 +40,9 @@
         </tbody>
     </table>
 </div>
+<ng-template #nulo>
+    <div
+        class="container d-flex justify-content-center align-items-center text-white nulo">
+        <h3>Espera unos segundos ...</h3>
+    </div>
+</ng-template>

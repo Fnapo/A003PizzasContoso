@@ -43,13 +43,13 @@ export class BorrarPizzaComponent implements OnInit {
     }
 
     public BorrarPizza(): void {
-        this.servicioPizzas.BorrarrPizza(this.pizza.id).subscribe({
-            next: () => {
-                alert(`Entrada borrada correctamente ...`);
+        this.servicioPizzas.BorrarPizza(this.pizza.id).subscribe({
+            next: (pizza: Pizza) => {
+                alert(`Pizza (Ref: ${pizza.id}) borrada correctamente ...`);
                 this.Cancelar();
             },
             error: (error) => {
-                alert(`Entrada no borrada, hay un error: ${error.message}...`);
+                alert(`Pizza no borrada, hay un error: ${error.message}...`);
             }
         })
     }

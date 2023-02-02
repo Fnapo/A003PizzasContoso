@@ -1,13 +1,15 @@
-<div class="container h-100 d-flex text-center align-items-center">
+<p>agregar-pizza works!</p>
+<!--
+    <div class="container h-100 d-flex text-center align-items-center">
 
     <form class="was-validated col-12 col-md-9 py-5 mx-auto px-3 px-md-5"
-        autocomplete="off" [formGroup]="grupoPizza" (submit)="EnviarPizza()">
-        <h3>{{esEditar ? 'Editando' : 'Agregando'}} una Pizza</h3>
+        autocomplete="off" [formGroup]="grupoPizza" (submit)="AgregarPizza()">
+        <h3>Agregando una Pizza</h3>
         <div class="form-group mb-5">
             <label for="nombre" class="form-label">Nombre</label>
             <input type="text" name="nombre" id="nombre" class="form-control"
                 placeholder="" required formControlName="nombre" #inputNombre>
-            <div *ngIf="grupoPizza.get('nombre')?.invalid && grupoPizza.get('nombre')?.dirty"
+            <div *ngIf="grupoPizza.get('nombre')?.invalid"
                 class="text-danger text-center fw-bold">
                 <div *ngIf="grupoPizza.get('nombre')?.errors?.['required']">
                     El Nombre es obligatorio
@@ -23,7 +25,7 @@
         </div>
         <div class="botonera-edit d-flex justify-content-around">
             <button class="btn btn-primary col-3" type="submit"
-                [disabled]="!grupoPizza.valid"> Guardar </button>
+                [disabled]="!grupoPizza.valid"> Agregar </button>
             <button (click)="Resetear()" type="button"
                 class="btn btn-success col-3"> Resetear </button>
             <button (click)="Cancelar()" type="button"
@@ -32,3 +34,5 @@
     </form>
 
 </div>
+
+-->
